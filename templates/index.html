@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Floater Adventure</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://kit.fontawesome.com/your-kit-id.js" crossorigin="anonymous"></script>
+
+</head>
+<body class="font-sans text-gray-800">
+  <!-- Header -->
+  <header class="relative h-[55vh] bg-cover bg-center bg-no-repeat" 
+  style="background-image: url('https://floater-adventure.s3.eu-north-1.amazonaws.com/Web_Images/Index_Image.jpg');">
+
+  <!-- Overlay -->
+  <div class="absolute inset-0 bg-black bg-opacity-30 z-0"></div>
+
+  <!-- Navbar -->
+  <nav class="absolute top-0 left-0 w-full px-6 py-4 flex justify-end items-center z-50 text-white">
+
+  <!-- Desktop Menu -->
+  <ul class="hidden md:flex gap-6 text-base">
+  <li><a href="/home" class="font-normal">Home</a></li>
+  <li><a href="/expeditions" class="font-normal">Expeditions</a></li>
+  <li><a href="/galleries" class="font-normal">Gallery</a></li>
+  <li><a href="/ourTeam" class="font-normal">Our Team</a></li>
+  <li><a href="/aboutUs" class="font-normal">About Us</a></li>
+  <li><a href="/contactUs" class="font-normal">Contact</a></li>
+</ul>
+
+
+  <!-- Hamburger Icon (Mobile) -->
+  <button id="menu-toggle" class="md:hidden focus:outline-none text-2xl">
+    &#9776;
+  </button>
+  </nav>
+
+  <!-- Mobile Sidebar -->
+  <div id="mobile-menu" class="fixed top-0 right-0 h-full w-64 bg-white shadow-lg z-50 transform translate-x-full transition-transform duration-300 ease-in-out md:hidden">
+    <div class="p-4 flex justify-between items-center border-b">
+      <h2 class="text-lg font-bold">Menu</h2>
+      <button id="close-menu" class="text-2xl font-bold">&times;</button>
+    </div>
+    <ul class="p-4 space-y-4 text-gray-800">
+      <li><a href="/home" class="font-normal">Home</a></li>
+      <li><a href="/expeditions" class="font-normal">Expeditions</a></li>
+      <li><a href="/galleries" class="font-normal">Gallery</a></li>
+      <li><a href="/ourTeam" class="font-normal">Our Team</a></li>
+      <li><a href="/aboutUs" class="font-normal">About Us</a></li>
+      <li><a href="/contactUs" class="font-normal">Contact</a></li>
+    </ul>
+  </div>
+
+    <!-- Hero Text -->
+    <div class="relative z-10 flex flex-col items-center justify-center h-full px-4 text-white text-center">
+      <p class="text-lg sm:text-xl mb-1">From snowy peaks to sunlit shores</p>
+      <h1 class="text-4xl sm:text-6xl font-bold leading-tight">Welcome to Floater Adventure</h1>
+  
+    </div>
+  </header>
+
+  <!-- Intro -->
+  <section class="text-center py-12 px-4">
+  <img src="https://floater-adventure.s3.eu-north-1.amazonaws.com/Web_Images/Black_Logo" alt="Logo" class="mx-auto mb-6  md:max-w-sm" />
+  <h2 class="text-2xl md:text-3xl font-semibold mb-8">
+    We bring together the charm of heritage with the ease of modern adventure
+  </h2>
+  <div class="max-w-5xl mx-auto bg-white shadow-md p-8 rounded border flex flex-col md:flex-row items-center gap-6">
+    <div class="text-gray-700 text-left md:w-3/4">
+      <p>
+        Floater Adventures isn’t just about travel — it’s about freedom.<br />
+        Rooted in a passion for discovery and crafted for the modern explorer,
+        we design journeys that help you escape, explore, and experience the
+        world like never before.
+      </p>
+    </div>
+    <div class="flex flex-col items-center md:w-1/4">
+      <img src="https://floater-adventure.s3.eu-north-1.amazonaws.com/Web_Images/Harris_profile" alt="Mr. Haris Riyaz" class="rounded-full w-24 h-24 mb-2" />
+      <p class="font-semibold">Mr. Haris Riyaz</p>
+    </div>
+  </div>
+  </section>
+
+  <section class="py-12 px-4 bg-gray-50 text-center">
+    <h2 class="text-3xl font-bold mb-4">Why Choose Us?</h2>
+    <p class="max-w-3xl mx-auto text-gray-700 text-lg leading-relaxed mb-10">
+      We believe travel is not just movement; it's meaning. At Floater Adventures, we bring together the charm of heritage with the ease of modern adventure — all while keeping things beautifully minimal, deeply local, and powerfully memorable.
+    </p>
+
+    <h3 class="text-xl font-semibold mb-8">Our Motto — <span class="text-indigo-600 font-bold">3S:</span> Escape. Explore. Experience.</h3>
+
+    <div class="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto text-left">
+
+    <!-- Escape Card -->
+    <div class="bg-white shadow-md p-6 rounded">
+      <div class="text-indigo-600 mb-3">
+        <!-- Icon: Compass or Mountain -->
+        <svg class="w-10 h-10 mx-auto" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 2L4 20l8-4 8 4-8-18z" />
+        </svg>
+      </div>
+      <h4 class="text-lg font-semibold mb-2 text-center">Escape</h4>
+      <p class="text-gray-600 text-sm">Escape the noise of everyday life and step into stories waiting beyond the horizon.</p>
+    </div>
+
+    <!-- Explore Card -->
+    <div class="bg-white shadow-md p-6 rounded">
+      <div class="text-indigo-600 mb-3">
+        <!-- Icon: Map with pin -->
+        <svg class="w-10 h-10 mx-auto" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M9 20l-5.447-2.724A1 1 0 013 16.382V4.618a1 1 0 01.553-.894L9 1m0 0l6 3m-6-3v19m6-16l5.447 2.724A1 1 0 0121 7.618v11.764a1 1 0 01-.553.894L15 23m0 0V4" />
+        </svg>
+      </div>
+      <h4 class="text-lg font-semibold mb-2 text-center">Explore</h4>
+      <p class="text-gray-600 text-sm">Explore every step of your journey, from hidden trails to timeless cultures.</p>
+    </div>
+
+    <!-- Experience Card -->
+    <div class="bg-white shadow-md p-6 rounded">
+      <div class="text-indigo-600 mb-3">
+        <!-- Icon: Spark/star for transformation -->
+        <svg class="w-10 h-10 mx-auto" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 2v2m0 16v2m10-10h-2M4 12H2m15.364-6.364l-1.414 1.414M6.05 17.95l-1.414 1.414m0-13.414L6.05 6.05m12.728 12.728l-1.414-1.414M12 8a4 4 0 100 8 4 4 0 000-8z" />
+        </svg>
+      </div>
+      <h4 class="text-lg font-semibold mb-2 text-center">Experience</h4>
+      <p class="text-gray-600 text-sm">Experience more than just destinations — experience transformation, thrill, and connection.</p>
+    </div>
+
+  </div>
+    </div>
+  </section>
+
+  <!-- Packages -->
+  <section class="px-4 py-10">
+    <h3 class="text-2xl font-bold text-center mb-8">Explore our Compact packages</h3>
+    <div id="home-packages" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 max-w-6xl mx-auto"></div>
+  
+    <div class="flex justify-center mt-4">
+    <a href="/getcategoryPackages?category=Compact Package" class="flex items-center text-blue-600 hover:underline">
+    More packages
+    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+    </svg>
+  </a>
+
+    </div>
+  </section>
+
+  <!-- Expeditions -->
+  <section class="px-4 py-10">
+    <h3 class="text-2xl font-bold text-center mb-8">Explore Our wide range of Expeditions</h3>
+    <div id ="homeExpeditions" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 max-w-6xl mx-auto"></div>
+
+    <!-- More Expeditions -->
+    <div class="flex justify-center mt-4">
+      <a href="/expeditions" class="flex items-center text-blue-600 hover:underline">
+      More Expeditions
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+      </svg>
+    </a>
+    </div>
+    </section>
+
+<!-- Contact Form -->
+<section class="px-4 py-10">
+  <h3 class="text-2xl font-bold text-center mb-8">Contact Us</h3>
+  <form action="/submit-quote" method="POST" class="max-w-xl mx-auto border shadow-md p-6 rounded flex flex-col gap-4">
+    
+    <input name="name" type="text" placeholder="Name" class="border p-2 rounded" />
+    <input name="contact" type="number" placeholder="Contact No" class="border p-2 rounded" />
+    <input name="email" type="email" placeholder="Email Address" class="border p-2 rounded" />
+    <input name="address" type="text" placeholder="Address" class="border p-2 rounded" />
+    
+    <select id="package" name="package" class="border p-2 rounded" required>
+      <option value="">Select Package</option>
+    </select>
+
+    <button type="submit" class="bg-indigo-900 text-white px-6 py-2 rounded">Get Quote</button>
+  </form>
+</section>
+
+
+  <!-- Footer -->
+  <footer class="bg-[#2e2c77] text-white px-6 py-10">
+  <div class="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 text-sm">
+
+   <!-- Logo -->
+  <div class="flex flex-col items-center md:items-start justify-center md:justify-start">
+    <img src="https://learnarc-storageaws.s3.eu-north-1.amazonaws.com/profile_pictures/Floater_Adventure__2_-removebg-preview.png" alt="Floater Adventure" class="mb-4 w-36">
+  </div>
+
+    <!-- Address -->
+    <div class="flex flex-col items-center md:items-start text-center md:text-left">
+      <h4 class="font-semibold mb-2">Address</h4>
+      <p>Srinagar</p>
+      <p>Jammu and Kashmir</p>
+      <p>Dalgate, Boulevard Road</p>
+      <p>Opposite SBI Bank</p>
+      <p>harisriyaz@gmail.com</p>
+    </div>
+
+    <!-- Contact/Links -->
+    <div class="flex flex-col items-center md:items-start">
+      <h4 class="font-semibold mb-2">Quick Links</h4>
+      <a href="/aboutUs">About Us</a>
+      <a href="/termsAndConditions">Terms and Conditions</a>
+      <a href="/contactUs">Contact Us</a>
+    </div>
+
+     <!-- Social Links -->
+  <div class="flex flex-col items-center md:items-start">
+    <h4 class="font-semibold mb-2">Follow us at</h4>
+    <div class="flex space-x-4">
+      <!-- Instagram -->
+      <a href="https://www.instagram.com/floater_adventures/?utm_source=ig_web_button_share_sheet&igsh=ODdmZWVhMTFiMw%3D%3D#" aria-label="Instagram">
+        <svg class="w-6 h-6 text-white hover:text-gray-300" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M7 2C4.238 2 2 4.238 2 7v10c0 2.762 2.238 5 5 5h10c2.762 0 5-2.238 5-5V7c0-2.762-2.238-5-5-5H7zM12 17c-2.761 0-5-2.238-5-5s2.239-5 5-5 5 2.238 5 5-2.239 5-5 5zm4.5-8a1.5 1.5 0 110-3 1.5 1.5 0 010 3zM12 15a3 3 0 100-6 3 3 0 000 6z"/>
+        </svg>
+      </a>
+    </div>
+  </div>
+  </div>
+  </footer>
+
+<script src="{{ url_for('static', filename='js/index.js') }}"></script>
+</body>
+</html>

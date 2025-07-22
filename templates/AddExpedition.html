@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <title>Add New Expedition</title>
+</head>
+<body class="bg-gray-100 min-h-screen flex items-center justify-center">
+
+  <form action="/add-expedition" method="POST" enctype="multipart/form-data"
+        class="bg-white p-8 rounded-lg shadow-lg w-full max-w-2xl space-y-6">
+    <h2 class="text-2xl font-bold text-center text-indigo-800">Add New Expedition</h2>
+
+    <!-- Expedition Name-->
+    <div>
+      <label class="block mb-2 font-medium">Expedition Title</label>
+      <input type="text" name="title" placeholder="Enter Expedition Title" class="w-full border p-2 rounded" required />
+    </div>
+
+    <!-- Package short Description -->
+    <div>
+      <label class="block mb-2 font-medium">Short Description</label>
+      <textarea name="description" rows="4" placeholder="Enter description"
+                class="w-full border p-2 rounded" required></textarea>
+    </div>
+
+    <!-- Expedition Image -->
+    <div>
+      <label class="block mb-2 font-medium">Expedition Image</label>
+      <input type="file" name="thumbnail" accept="image/*" required class="w-full border p-2 rounded" />
+    </div>
+
+    <!-- Display on Home -->
+    <div class="flex items-center space-x-2">
+      <input type="checkbox" name="displayOnHome" id="displayOnHome" class="w-4 h-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500">
+      <label for="displayOnHome" class="text-sm font-medium text-gray-700">Display on Home</label>
+    </div>
+
+<button type="submit" class="w-full bg-indigo-600 text-white py-2 rounded hover:bg-indigo-700">
+  Add Expedition
+</button>
+
+  </form>
+
+</body>
+</html>

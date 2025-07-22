@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <title>Add New Package</title>
+</head>
+<body class="bg-gray-100 min-h-screen flex items-center justify-center">
+
+  <form action="/add-package" method="POST" enctype="multipart/form-data"
+        class="bg-white p-8 rounded-lg shadow-lg w-full max-w-2xl space-y-6">
+    <h2 class="text-2xl font-bold text-center text-indigo-800">Add New Travel Package</h2>
+
+    <!-- Package Title -->
+<div>
+  <label class="block mb-2 font-medium">Package Title</label>
+  <input type="text" name="title" placeholder="Enter Package Title" class="w-full border p-2 rounded" required />
+</div>
+
+<!-- Package Type -->
+<div>
+  <label for="category" class="block mb-2 font-medium">Expedition</label>
+  <select id="categorySelect" name="category" 
+  class="w-full border p-2 rounded bg-white text-gray-800" required>
+  <option value="">Select a type</option>
+</select>
+
+</div>
+
+
+
+    <!-- Package Image -->
+    <div>
+      <label class="block mb-2 font-medium">Package Image</label>
+      <input type="file" name="thumbnail" accept="image/*" required class="w-full border p-2 rounded" />
+    </div>
+
+    <!-- Package Overview -->
+    <div>
+      <label class="block mb-2 font-medium">Package Overview</label>
+      <textarea name="overview" rows="4" placeholder="Enter package overview"
+                class="w-full border p-2 rounded" required></textarea>
+    </div>
+
+    <!-- Package short Description -->
+    <div>
+      <label class="block mb-2 font-medium">Short Description</label>
+      <textarea name="description" rows="4" placeholder="Enter description"
+                class="w-full border p-2 rounded" required></textarea>
+    </div>
+
+    <!-- Itinerary Section -->
+  <div id="itinerary-container" class="space-y-4">
+  <label class="block font-medium mb-1">Itineraries</label>
+
+  <!-- One itinerary block -->
+  <div class="itinerary-item bg-gray-50 p-4 rounded border space-y-2">
+  <input type="file" name="itinerary_image_0" accept="image/*" class="w-full border p-2 rounded" required />
+  <input type="text" name="itinerary_title_0" placeholder="Itinerary Title (e.g., Exploring Leh)" class="w-full border p-2 rounded" required />
+  <textarea name="itinerary_content_0" rows="2" placeholder="Day 0: ..." class="w-full border p-2 rounded" required></textarea>
+  <input type="text" name="itinerary_accommodation_0" placeholder="Accommodation (e.g., Hotel Snowland)" class="w-full border p-2 rounded" />
+  <input type="text" name="itinerary_meals_0" placeholder="Meals (e.g., Breakfast, Dinner)" class="w-full border p-2 rounded" />
+</div>
+
+</div>
+
+<div class="flex justify-between items-center mt-2">
+  <button type="button" onclick="addItinerary()" class="text-indigo-700 underline text-sm">
+    + Add 
+  </button>
+  <button type="button" onclick="removeItinerary()" class="text-indigo-700 underline text-sm">
+    − Remove
+  </button>
+</div>
+
+<!-- Inclusions Section -->
+<div id="inclusions-container" class="space-y-2 mt-6">
+  <label class="block font-medium">Inclusions</label>
+  <div class="flex gap-2">
+   <input type="text" name="inclusion[]" placeholder="Enter exclusion" class="w-full border p-2 rounded" />
+    <button type="button" onclick="this.parentElement.remove()" class="text-red-500 font-bold">×</button>
+  </div>
+</div>
+<button type="button" onclick="addInclusion()" class="text-indigo-700 underline text-sm mt-1">+ Add Inclusion</button>
+
+<!-- Exclusions Section -->
+<div id="exclusions-container" class="space-y-2 mt-6">
+  <label class="block font-medium">Exclusions</label>
+  <div class="flex gap-2">
+    <input type="text" name="exclusion[]" placeholder="Enter exclusion" class="w-full border p-2 rounded" />
+    <button type="button" onclick="this.parentElement.remove()" class="text-red-500 font-bold">×</button>
+  </div>
+</div>
+<button type="button" onclick="addExclusion()" class="text-indigo-700 underline text-sm mt-1">+ Add Exclusion</button>
+
+<!-- Image Gallery -->
+<div>
+  <label class="block mb-2 font-medium">Gallery ID</label>
+  <input type="text" name="galleryID" placeholder="Enter Gallery ID" class="w-full border p-2 rounded" required min="0" />
+</div>
+
+<!-- Package Price -->
+<div>
+  <label class="block mb-2 font-medium">Package Price (in ₹)</label>
+  <input type="number" name="price" placeholder="Enter Package Price" class="w-full border p-2 rounded" required min="0" />
+</div>
+
+<!-- Display on Home -->
+<div class="flex items-center space-x-2">
+  <input type="checkbox" name="display_on_home" id="display_on_home" class="w-4 h-4 text-indigo-600 border-gray-300 rounded focus:ring-indigo-500">
+  <label for="display_on_home" class="text-sm font-medium text-gray-700">Display on Home</label>
+</div>
+
+
+<button type="submit" class="w-full bg-indigo-600 text-white py-2 rounded hover:bg-indigo-700">
+  Add Package
+</button>
+
+  </form>
+
+<script src="{{ url_for('static', filename='js/AddPackage.js') }}"></script>
+</body>
+</html>
