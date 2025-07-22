@@ -13,7 +13,6 @@ import os
 
 # Connecting to MongoDB
 client=MongoClient(os.getenv('MongoClient'))
-print(client.list_database_names())
 database=client["Floater-Adventure"]
 
 # AWS Boto3 Object
@@ -32,7 +31,7 @@ app.config['MAIL_PASSWORD'] = os.getenv('Mail_Pass')
 app.config['MAIL_DEFAULT_SENDER'] = 'zahrannazirdhar@gmail.com'
 
 # Configuring Routes
-WelcomeRoutes(app)
+WelcomeRoutes(app,client)
 QuoteRoutes(app,database,)
 AuthRoutes(app,database)
 PackageRoutes(app,database,s3)
