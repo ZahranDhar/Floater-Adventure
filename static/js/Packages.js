@@ -1,3 +1,18 @@
+const toggle = document.getElementById('menu-toggle');
+const close = document.getElementById('close-menu');
+const menu = document.getElementById('mobile-menu');
+
+toggle.addEventListener('click', () => {
+  menu.classList.remove('translate-x-full');
+  menu.classList.add('translate-x-0');
+});
+
+close.addEventListener('click', () => {
+  menu.classList.remove('translate-x-0');
+  menu.classList.add('translate-x-full');
+});
+
+
 const params = new URLSearchParams(window.location.search);
 const category = params.get("category");
 
@@ -46,6 +61,12 @@ fetch(`/getCategoryPackages?category=${category}`, { method: "POST" })
   fetch(`/get-expedition-id?category=${category}`)
     .then(res=>res.json())
     .then(data=>{
+
+      if (!data || data.length === 0) {
+      const container=document.getElementById("expeditions_id");
+      container.innerHTML = ``;
+      return;
+    }
 
       // Expedition ID Display
       document.getElementById("expedition_id").textContent = data.expedition_id;

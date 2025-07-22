@@ -31,7 +31,7 @@ app.config['MAIL_PASSWORD'] = os.getenv('Mail_Pass')
 app.config['MAIL_DEFAULT_SENDER'] = 'zahrannazirdhar@gmail.com'
 
 # Configuring Routes
-WelcomeRoutes(app,client)
+WelcomeRoutes(app)
 QuoteRoutes(app,database,)
 AuthRoutes(app,database)
 PackageRoutes(app,database,s3)
