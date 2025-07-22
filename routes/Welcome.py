@@ -9,6 +9,10 @@ class WelcomeRoutes:
       return redirect("/home")
     
     @app.route('/testdb', methods=['GET'])
-    def testdb():
-
-      print(client.list_database_names())
+    def test_db():
+      try:
+          print("Databases:", client.list_database_names())
+          return "Check Vercel logs for database list."
+      except Exception as e:
+          print("Error accessing MongoDB:", e)
+          return "MongoDB error occurred", 500
