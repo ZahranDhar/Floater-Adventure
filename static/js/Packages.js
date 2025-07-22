@@ -64,7 +64,7 @@ fetch(`/getCategoryPackages?category=${category}`, { method: "POST" })
 
       if (!data || data.length === 0) {
       const container=document.getElementById("expeditions_id");
-      container.innerHTML = ``;
+      container.innerHTML = `NA`;
       return;
     }
 

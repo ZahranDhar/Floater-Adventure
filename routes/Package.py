@@ -49,7 +49,7 @@ class PackageRoutes:
         package['overview']=request.form['overview']
         package['description']=request.form['description']
         package['displayOnHome']=bool(request.form.get("display_on_home"))
-        package['galleryID']=request.form['galleryID']
+        package['galleryTitle']=request.form['galleryTitle']
 
         thumbnail=request.files['thumbnail']
         if thumbnail:
