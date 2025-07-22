@@ -40,13 +40,13 @@ class AuthRoutes:
         else:
           return redirect('/login')
     
-      @app.route('/admin-portal',methods=['GET'])
-      def adminPortal():
-
-        if 'admin' in session:
-          return render_template("AdminPortal.html")
-        else:
-          redirect('/login')
+    @app.route('/admin-portal',methods=['GET'])
+    def adminPortal():
+      if 'admin' not in session:
+        return redirect('/login')
+      else:
+        return render_template("AdminPortal.html")
+        
 
 
 
