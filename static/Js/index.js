@@ -1,3 +1,6 @@
+console.log("JS loaded!");
+alert("JS is running!");
+
 const toggle = document.getElementById('menu-toggle');
 const close = document.getElementById('close-menu');
 const menu = document.getElementById('mobile-menu');
