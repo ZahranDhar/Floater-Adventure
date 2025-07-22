@@ -13,6 +13,7 @@ import os
 
 # Connecting to MongoDB
 client=MongoClient(os.getenv('MongoClient'))
+print(client.list_database_names())
 database=client["Floater-Adventure"]
 
 # AWS Boto3 Object
