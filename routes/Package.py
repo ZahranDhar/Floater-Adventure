@@ -120,13 +120,19 @@ class PackageRoutes:
     # Get Home Packages Route
     @app.route('/getHomePackages', methods=['POST'])
     def getHomePackages():
+      
+      try:
 
-      result=list(packages.find({"displayOnHome":True}))
+        result=list(packages.find({"displayOnHome":True}))
 
-      for package in result:
-        package['_id']=str(package.get("_id"))
 
-      return jsonify(result)
+        for package in result:
+          package['_id']=str(package.get("_id"))
+
+        return jsonify(result)
+      except Exception as e:
+        print("error",e)
+        return jsonify({"error":str(e)}),500
     
     # Get Category Packages Route
     @app.route('/getCategoryPackages', methods=['GET','POST'])
