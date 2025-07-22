@@ -33,7 +33,9 @@ class QuoteRoutes:
         recipients=[email],
         body=f"""
         Hello {name}. We have received your request for quote of {package} package. We will contact you soon.
-        Thank you for choosing Floater Adventure
+
+        Thank you for choosing Floater Adventure!
+
         Regards
         Floater Adventure"""
       )
@@ -43,7 +45,8 @@ class QuoteRoutes:
         sender=app.config['MAIL_USERNAME'],
         recipients=["zahrannazirdhar@gmail.com"],
         body=f"""
-        You have received a quote request. The details of costumer are listed below
+        You have received a quote request. The details of costumer are listed below:
+
         Name: {name}
         Contact: {contact}
         Email: {email}

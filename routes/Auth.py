@@ -1,4 +1,4 @@
-from flask import render_template,request,redirect
+from flask import render_template,request,redirect,session
 import bcrypt
 
 class AuthRoutes:
@@ -18,6 +18,8 @@ class AuthRoutes:
 
         admins.insert_one({"username":username,"password":password.decode('utf-8')})
 
+        session['admin']=username
+
         return redirect('/admin-portal')
       
     # Admin Login  
@@ -32,13 +34,19 @@ class AuthRoutes:
         user=admins.find_one({"username":username})
 
         if(user and bcrypt.checkpw(password.encode('utf-8'),user.get("password").encode('utf-8'),)):
+          
+          session['admin']=username
           return redirect('/admin-portal')
         else:
           return redirect('/login')
     
     @app.route('/admin-portal',methods=['GET'])
     def adminPortal():
-      return render_template("AdminPortal.html")
+
+      if 'admin' in session:
+        return render_template("AdminPortal.html")
+      else:
+        redirect('/login')
 
 
 

@@ -9,9 +9,5 @@ class WelcomeRoutes:
     def renderHome():
       return redirect("/home")
     
-    @app.route('/test', methods=['GET'])
-    def test():
-      return "SUCCESS"
-    
 
     
