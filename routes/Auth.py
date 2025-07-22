@@ -6,7 +6,7 @@ class AuthRoutes:
     admins=database["Admins"]
 
     # Admin Register
-    @app.route('/register', methods=['GET','POST'])
+    @app.route('/Register', methods=['GET','POST'])
     def adminRegister():
       if request.method=='GET':
         return render_template("AdminRegisterLogin.html",type="Register")
@@ -23,7 +23,7 @@ class AuthRoutes:
         return redirect('/admin-portal')
       
     # Admin Login  
-    @app.route('/login',methods=['GET','POST'])
+    @app.route('/Login',methods=['GET','POST'])
     def adminLogin():
       if request.method=='GET':
         return render_template("AdminRegisterLogin.html",type="Login")
