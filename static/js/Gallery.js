@@ -14,10 +14,8 @@ fetch(`/gallery?title=${title}`,{method:"POST"})
       image.className = "flex-shrink-0 object-contain h-full w-full";
       gallery.appendChild(image);
     });
-});
 
-// Navigation Module
-const gallery = document.getElementById("bigGallery");
+  // Navigation Module
   const images = gallery.querySelectorAll("img");
   let index = 0;
 
@@ -37,4 +35,7 @@ const gallery = document.getElementById("bigGallery");
   };
 
   window.addEventListener("resize", updateGallery);
+
+});
+
 
