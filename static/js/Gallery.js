@@ -1,43 +1,40 @@
-// Responsive Navigation Bar
+// Fetch Images
+const params = new URLSearchParams(window.location.search);
+const title = params.get("title");
 
-const toggle = document.getElementById('menu-toggle');
-const close = document.getElementById('close-menu');
-const menu = document.getElementById('mobile-menu');
-
-toggle.addEventListener('click', () => {
-  menu.classList.remove('translate-x-full');
-  menu.classList.add('translate-x-0');
-});
-
-close.addEventListener('click', () => {
-  menu.classList.remove('translate-x-0');
-  menu.classList.add('translate-x-full');
-});
-
-// const params = new URLSearchParams(window.location.search);
-// const title = params.get("title");
-
-// fetch(`/gallery?title=${title},{method:"POST}`)
-// .then(res=>res.json())
-// .then(data=>{
-
-// })
-
+fetch(`/gallery?title=${title}`,{method:"POST"})
+.then(res=>res.json())
+.then(data=>{
   const gallery = document.getElementById("bigGallery");
-  const images = gallery.querySelectorAll("img");
-  let currentIndex = 0;
+  gallery.innerHTML="";
 
-  function updateGallery() {
-    const width = images[0].clientWidth + 16; // + margin (mx-2)
-    gallery.style.transform = `translateX(-${currentIndex * width}px)`;
-  }
+ data.mediaFiles.forEach(imgURL => {
+      const image = document.createElement("img");
+      image.src = imgURL;
+      image.className = "flex-shrink-0 object-contain h-full w-full";
+      gallery.appendChild(image);
+    });
+});
+
+// Navigation Module
+const gallery = document.getElementById("bigGallery");
+  const images = gallery.querySelectorAll("img");
+  let index = 0;
+
+  const updateGallery = () => {
+    const width = gallery.clientWidth;
+    gallery.style.transform = `translateX(-${index * width}px)`;
+  };
 
   document.getElementById("prevBtn").onclick = () => {
-    if (currentIndex > 0) currentIndex--;
+    if (index > 0) index--;
     updateGallery();
   };
 
   document.getElementById("nextBtn").onclick = () => {
-    if (currentIndex < images.length - 1) currentIndex++;
+    if (index < images.length - 1) index++;
     updateGallery();
   };
+
+  window.addEventListener("resize", updateGallery);
+
