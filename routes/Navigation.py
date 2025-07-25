@@ -28,4 +28,9 @@ class NavigationRoutes:
     def displayTermsAndConditions():
       return render_template('TermsAndConditions.html')
     
+    # Privacy Policy Route
+    @app.route('/privacyPolicy',methods=['GET'])
+    def displayPrivacyPolicy():
+      return render_template('PrivacyPolicy.html')
+    
     
