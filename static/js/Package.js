@@ -35,7 +35,7 @@ fetch(`/get-package?package_id=${packageId}`, { method: "POST" })
     block.innerHTML = `
       <img src="${item.itinerarythumbnailURL}" class="w-full md:w-80 h-64 object-cover" />
       <div class="p-6 overflow-y-auto max-h-64">
-        <h3 class="text-xl font-bold mb-2">Day ${i + 1}: ${item.title}</h3>
+        <h3 class="text-xl font-bold mb-2">Day ${i}: ${item.title}</h3>
         <p class="text-gray-700 mb-2">${item.content}</p>
         <p class="text-sm text-gray-600"><strong>Accommodation:</strong> ${item.accommodation || "N/A"}</p>
         <p class="text-sm text-gray-600"><strong>Meals:</strong> ${item.meals || "N/A"}</p>
