@@ -6,21 +6,21 @@ class AuthRoutes:
     admins=database["Admins"]
 
     # Admin Register
-    @app.route('/register', methods=['GET','POST'])
-    def adminRegister():
-      if request.method=='GET':
-        return render_template("AdminRegisterLogin.html",type="register")
-      else:
-        username=request.form['username']
-        password=request.form['password']
+    # @app.route('/register', methods=['GET','POST'])
+    # def adminRegister():
+    #   if request.method=='GET':
+    #     return render_template("AdminRegisterLogin.html",type="register")
+    #   else:
+    #     username=request.form['username']
+    #     password=request.form['password']
 
-        password=bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt())
+    #     password=bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt())
 
-        admins.insert_one({"username":username,"password":password.decode('utf-8')})
+    #     admins.insert_one({"username":username,"password":password.decode('utf-8')})
 
-        session['admin']=username
+    #     session['admin']=username
 
-        return redirect('/admin-portal')
+    #     return redirect('/admin-portal')
       
     # Admin Login  
     @app.route('/login',methods=['GET','POST'])

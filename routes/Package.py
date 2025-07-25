@@ -30,8 +30,8 @@ class PackageRoutes:
     # Upload Images To AWS
     def uploadImageToAWS(fileObj):
 
-        fileName = f"profile_pictures/{fileObj.filename}"
-        bucketName = 'learnarc-storageaws'
+        fileName = f"Packages/{fileObj.filename}"
+        bucketName = 'floater-adventure'
         s3.upload_fileobj(fileObj, bucketName, fileName)
 
         return f"https://{bucketName}.s3.amazonaws.com/{fileName}"
