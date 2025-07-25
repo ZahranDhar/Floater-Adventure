@@ -61,6 +61,16 @@ fetch(`/get-package?package_id=${packageId}`, { method: "POST" })
     li.textContent = item;
     exclusionsList.appendChild(li);
   });
+
+  // View Gallery Button
+  const gallery=document.getElementById("view-gallery");
+  gallery.innerHTML="";
+  gallery.innerHTML=`
+  <a href="/gallery?title=${data.galleryTitle}"
+     class="px-10 py-4 bg-white text-indigo-600 text-lg font-semibold rounded-xl shadow-md border border-indigo-600 transition duration-300 hover:bg-indigo-600 hover:text-white">
+    View Gallery >
+  </a>
+  `;
   
   const avgRating = data.average_rating || 0;
   const starsContainer = document.getElementById("average-rating");
