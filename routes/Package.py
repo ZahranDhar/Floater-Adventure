@@ -82,6 +82,8 @@ class PackageRoutes:
         package['average_rating']=0
         package['price']=request.form['price']
 
+        packages.insert_one(package)
+
         return redirect('/adminSuccess')
       
     # Get Package Page Route
