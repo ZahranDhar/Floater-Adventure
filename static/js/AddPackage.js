@@ -1,4 +1,4 @@
-let itineraryCount = 1;
+let itineraryCount = 0;
 let inclusionCount = 1;
 let exclusionCount = 1;
 
@@ -11,7 +11,7 @@ function addItinerary() {
   newItem.innerHTML = `
     <input type="file" name="itinerary_image_${itineraryCount}" accept="image/*" class="w-full border p-2 rounded" required />
     <input type="text" name="itinerary_title_${itineraryCount}" placeholder="Itinerary Title" class="w-full border p-2 rounded" required />
-    <textarea name="itinerary_content_${itineraryCount}" rows="2" placeholder="Day ${itineraryCount}: ..." class="w-full border p-2 rounded" required></textarea>
+    <textarea name="itinerary_content_${itineraryCount}" rows="2" placeholder="Day ${itineraryCount+1}: ..." class="w-full border p-2 rounded" required></textarea>
     <input type="text" name="itinerary_accommodation_${itineraryCount}" placeholder="Accommodation" class="w-full border p-2 rounded" />
     <input type="text" name="itinerary_meals_${itineraryCount}" placeholder="Meals" class="w-full border p-2 rounded" />
   `;
@@ -20,7 +20,7 @@ function addItinerary() {
 
 // Remove Itinerary
 function removeItinerary() {
-  if (itineraryCount > 1) {
+  if (itineraryCount > 0) {
     document.getElementById('itinerary-container').lastElementChild.remove();
     itineraryCount--;
   }
