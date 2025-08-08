@@ -57,7 +57,7 @@ class PackageRoutes:
           package['thumbnailURL']=thumbnailurl
 
         itineraries=[]
-        i=1
+        i=0
         while(f"itinerary_title_{i}" in request.form):
           itinerary={}
           itinerary['title']=request.form[f"itinerary_title_{i}"]
