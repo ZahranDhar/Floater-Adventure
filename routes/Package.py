@@ -136,7 +136,12 @@ class PackageRoutes:
                 {"$set": {"average_rating": average_rating}}
             )
 
-        return render_template("ReviewSuccess.html")
+        return redirect("/reviewSuccess")
+      
+    # Review Success Route  
+    @app.route('/reviewSuccess', methods=['GET'])
+    def displayReviewSuccess():
+      return render_template("ReviewSuccess.html")  
     
     # Get Home Packages Route
     @app.route('/getHomePackages', methods=['POST'])
