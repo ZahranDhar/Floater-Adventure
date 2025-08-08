@@ -135,7 +135,7 @@ class PackageRoutes:
                 {"$set": {"average_rating": average_rating}}
             )
 
-        return render_template("UserSuccess")
+        return render_template("UserSuccess.html")
     
     # Get Home Packages Route
     @app.route('/getHomePackages', methods=['POST'])
