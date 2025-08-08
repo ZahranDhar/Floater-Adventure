@@ -81,6 +81,7 @@ class PackageRoutes:
         package['reviews']=[]
         package['average_rating']=0
         package['price']=request.form['price']
+        package['discounted_price']=request.form['discounted_price']
 
         packages.insert_one(package)
 

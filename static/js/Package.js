@@ -105,7 +105,11 @@ fetch(`/get-package?package_id=${packageId}`, { method: "POST" })
   });
 
   // Price Display
-  document.getElementById("package-price").textContent = `₹${data.price.toLocaleString()}`;
+  document.getElementById("package_price").textContent = `₹${data.price.toLocaleString()}`;
+  document.getElementById("discounted_price").textContent = `₹${data.discounted_price.toLocaleString()}`;
+
+  let percentage_discount=(data.discounted_price/data.price)*100;
+  document.getElementById("discount_percent").textContent = `${percentage_discount.toLocaleString()}%`;
 
   // Package ID Display
   document.getElementById("package-id-display").textContent = packageId;
