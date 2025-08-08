@@ -93,7 +93,7 @@ fetch(`/get-package?package_id=${packageId}`, { method: "POST" })
   // Populate reviews
   const reviewsContainer = document.getElementById("reviews-container");
   reviewsContainer.innerHTML = "";
-  if(data.reviews){
+  if(data.reviews && data.reviews.length>0){
     document.getElementById("review_heading").innerHTML=`
     <h2 class="text-3xl font-bold text-indigo-900 text-center mb-4">
       Why Travelers Love Floater Adventure
