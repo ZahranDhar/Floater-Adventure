@@ -1,0 +1,87 @@
+<form id="review-form" class="bg-white shadow p-6 rounded space-y-4">
+    
+  <h2 class="text-2xl font-semibold text-gray-800 mb-2">Submit Your Review</h2>
+    <input type="hidden" name="package_id" value="{{ package_id }}" />
+
+    <!-- Name -->
+    <input type="text" name="reviewer" placeholder="Your Name" class="w-full border p-2 rounded" required />
+
+    <!-- Review Text -->
+    <textarea name="review" placeholder="Write your review..." rows="4" class="w-full border p-2 rounded" required></textarea>
+
+    <!-- Star Rating -->
+    <div class="flex items-center gap-1">
+      <label class="text-gray-700 font-medium">Rating:</label>
+      <div class="flex flex-row-reverse justify-center space-x-reverse space-x-1 text-gray-400">
+      {% for i in range(5, 0, -1) %}
+        <input type="radio" id="star{{ i }}" name="rating" value="{{ i }}" class="hidden peer peer-checked:text-yellow-400" required>
+        <label for="star{{ i }}" class="cursor-pointer text-2xl peer-checked:text-yellow-400 hover:text-yellow-400">&#9733;</label>
+      {% endfor %}
+    </div>
+
+    </div>
+    <!-- Submit -->
+    <button type="submit" class="bg-indigo-700 text-white px-4 py-2 rounded hover:bg-indigo-800">
+      Submit Review
+    </button>
+  </form>
+
+
+
+
+  // Review form submission
+const reviewForm = document.getElementById("review-form");
+if (reviewForm) {
+reviewForm.addEventListener("submit", function (e) {
+  e.preventDefault();
+  const reviewer = this.reviewer.value.trim();
+  const review = this.review.value.trim();
+  const rating = this.querySelector('input[name="rating"]:checked')?.value;
+  if (!reviewer || !review || !rating) return;
+
+  fetch(`/add-review?package_id=${packageId}`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ reviewer, review, rating }),
+  })
+    .then(res => res.json())
+    .then(result => {
+      if (result.success) {
+        const div = document.createElement("div");
+        div.className = "border p-3 rounded bg-gray-50";
+        div.innerHTML = `
+          <p class="font-semibold">${reviewer}</p>
+          <p class="text-gray-700">${review}</p>
+          <p class="text-yellow-500">★ ${rating}</p>
+        `;
+        if (result.success) {
+      // prepend review (already done)
+      document.getElementById("reviews-container").prepend(div);
+
+      // update average rating UI
+      const avgContainer = document.getElementById("average-rating");
+      avgContainer.innerHTML = "";
+
+      for (let i = 1; i <= 5; i++) {
+        const star = document.createElement("span");
+        star.className = "text-yellow-400 text-2xl";
+        star.textContent = i <= Math.round(result.average_rating) ? "★" : "☆";
+        avgContainer.appendChild(star);
+      }
+
+      const txt = document.createElement("span");
+      txt.className = "ml-2 text-white text-base";
+      txt.textContent = `(${result.average_rating.toFixed(1)})`;
+      avgContainer.appendChild(txt);
+
+
+
+      this.reset();
+
+}
+      } else {
+        alert("Failed to submit review");
+      }
+    });
+});
+}

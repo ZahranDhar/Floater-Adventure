@@ -1,4 +1,4 @@
-let itineraryCount = 0;
+let itineraryCount = 1;
 let inclusionCount = 1;
 let exclusionCount = 1;
 
@@ -20,7 +20,7 @@ function addItinerary() {
 
 // Remove Itinerary
 function removeItinerary() {
-  if (itineraryCount > 0) {
+  if (itineraryCount > 1) {
     document.getElementById('itinerary-container').lastElementChild.remove();
     itineraryCount--;
   }
