@@ -67,7 +67,7 @@ fetch(`/get-package?package_id=${packageId}`, { method: "POST" })
   highlightsList.innerHTML = "";
   data.highlights.forEach(item => {
     const li = document.createElement("li");
-    li.className="w-2 h-2 bg-indigo-500 rounded-full mt-2 mr-3"
+    li.className="flex items-start"
     li.innerHTML = `<span class="w-2 h-2 bg-indigo-500 rounded-full mt-2 mr-3"></span> ${item}`
     highlightsList.appendChild(li);
   });
