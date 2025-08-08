@@ -77,7 +77,7 @@ class PackageRoutes:
 
         package['inclusions']=request.form.getlist('inclusion[]')
         package['exclusions']=request.form.getlist('exclusion[]')
-        package['highlishts']=request.form.getlist('highlight[]')
+        package['highlights']=request.form.getlist('highlight[]')
 
         package['reviews']=[]
         package['average_rating']=0
