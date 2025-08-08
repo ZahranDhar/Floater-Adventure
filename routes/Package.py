@@ -123,7 +123,7 @@ class PackageRoutes:
           averageRating=totalRating/len(reviews)
           packages.update_one({"_id":package_id},{"$set":{"average_rating":averageRating}})
 
-        return redirect('/userSuccess')
+        return render_template("UserSuccess.html")
     
     # Get Home Packages Route
     @app.route('/getHomePackages', methods=['POST'])
