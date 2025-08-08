@@ -62,6 +62,15 @@ fetch(`/get-package?package_id=${packageId}`, { method: "POST" })
     exclusionsList.appendChild(li);
   });
 
+  // Populate Highlihts
+  const highlightsList = document.getElementById("highlights-list");
+  highlightsList.innerHTML = "";
+  data.highlights.forEach(item => {
+    const li = document.createElement("li");
+    li.textContent = item;
+    highlightsList.appendChild(li);
+  });
+
   // View Gallery Button
   const gallery=document.getElementById("view-gallery");
   gallery.innerHTML="";

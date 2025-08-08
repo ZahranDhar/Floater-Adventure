@@ -67,3 +67,18 @@ fetch("/getCategories", { method: "POST" })
     });
   })
   .catch(err => console.error("Failed to load categories:", err));
+
+  // Add Highlight
+  function addHighlight() {
+  const container = document.getElementById("highlights-container");
+  const div = document.createElement("div");
+  div.className = "flex gap-2";
+  div.innerHTML = `
+    <input type="text" name="highlight[]" placeholder="Enter a trip highlight"
+           class="w-full border p-2 rounded" />
+    <button type="button" onclick="this.parentElement.remove()" 
+            class="text-red-500 font-bold">×</button>
+  `;
+  container.appendChild(div);
+}
+

@@ -51,6 +51,19 @@
                 class="w-full border p-2 rounded" required></textarea>
     </div>
 
+    <!-- Trip Highlights Section -->
+<div id="highlights-container" class="space-y-2 mt-6">
+  <label class="block font-medium">Trip Highlights</label>
+  <div class="flex gap-2">
+    <input type="text" name="highlight[]" placeholder="Enter a trip highlight"
+           class="w-full border p-2 rounded" />
+    <button type="button" onclick="this.parentElement.remove()" 
+            class="text-red-500 font-bold">×</button>
+  </div>
+</div>
+<button type="button" onclick="addHighlight()" 
+        class="text-indigo-700 underline text-sm mt-1">+ Add Highlight</button>
+
     <!-- Itinerary Section -->
   <div id="itinerary-container" class="space-y-4">
   <label class="block font-medium mb-1">Itineraries</label>
