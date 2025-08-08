@@ -103,22 +103,27 @@ class PackageRoutes:
         return jsonify(package)
       
     # Review route
-    @app.route('/add-review',methods=['POST'])
+    @app.route('/add-review',methods=['POST','GET'])
     def addReview():
-      review=request.get_json()
-      package_id=ObjectId(request.args.get('package_id'))
-      packages.update_one({"_id":package_id},{"$push":{"reviews":review}})
 
-      result=packages.find_one({"_id":package_id})
-      reviews=result.get("reviews",[])
-      if(len(reviews)>0):
-        totalRating=0
-        for review in reviews:
-          totalRating=totalRating+int(review.get("rating"))
-        averageRating=totalRating/len(reviews)
-        packages.update_one({"_id":package_id},{"$set":{"average_rating":averageRating}})
+      if request.method=="GET":
+        return render_template("Review.html")
+      else:
 
-      return redirect('/userSuccess')
+        review=request.get_json()
+        package_id=ObjectId(request.args.get('package_id'))
+        packages.update_one({"_id":package_id},{"$push":{"reviews":review}})
+
+        result=packages.find_one({"_id":package_id})
+        reviews=result.get("reviews",[])
+        if(len(reviews)>0):
+          totalRating=0
+          for review in reviews:
+            totalRating=totalRating+int(review.get("rating"))
+          averageRating=totalRating/len(reviews)
+          packages.update_one({"_id":package_id},{"$set":{"average_rating":averageRating}})
+
+        return redirect('/userSuccess')
     
     # Get Home Packages Route
     @app.route('/getHomePackages', methods=['POST'])
