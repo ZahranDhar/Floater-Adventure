@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>User Success</title>
+  <link rel="icon" href="https://floater-adventure.s3.eu-north-1.amazonaws.com/Web_Images/Bluebg_Logo.jpg">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://kit.fontawesome.com/your-kit-id.js" crossorigin="anonymous"></script>
+
+</head>
+<body class="font-sans text-gray-800">
+  <!-- Header -->
+  <header class="relative h-[35vh] bg-[#2e2c77] bg-center bg-no-repeat" >
+
+
+  <!-- Navbar -->
+  <nav class="absolute top-0 left-0 w-full px-6 py-4 flex justify-end items-center z-50 text-white">
+ <!-- Desktop Menu -->
+  <ul class="hidden md:flex gap-6 text-base">
+  <li><a href="/home" class="font-normal">Home</a></li>
+  <li><a href="/expeditions" class="font-normal">Expeditions</a></li>
+  <li><a href="/galleries" class="font-normal">Gallery</a></li>
+  <li><a href="/ourTeam" class="font-normal">Our Team</a></li>
+  <li><a href="/aboutUs" class="font-normal">About Us</a></li>
+  <li><a href="/contactUs" class="font-normal">Contact</a></li>
+</ul>
+
+
+  <!-- Hamburger Icon (Mobile) -->
+  <button id="menu-toggle" class="md:hidden focus:outline-none text-2xl">
+    &#9776;
+  </button>
+  </nav>
+
+  <!-- Mobile Sidebar -->
+  <div id="mobile-menu" class="fixed top-0 right-0 h-full w-64 bg-white shadow-lg z-50 transform translate-x-full transition-transform duration-300 ease-in-out md:hidden">
+    <div class="p-4 flex justify-between items-center border-b">
+      <h2 class="text-lg font-bold">Menu</h2>
+      <button id="close-menu" class="text-2xl font-bold">&times;</button>
+    </div>
+    <ul class="p-4 space-y-4 text-gray-800">
+      <li><a href="/home" class="font-normal">Home</a></li>
+      <li><a href="/expeditions" class="font-normal">Expeditions</a></li>
+      <li><a href="/galleries" class="font-normal">Gallery</a></li>
+      <li><a href="/ourTeam" class="font-normal">Our Team</a></li>
+      <li><a href="/aboutUs" class="font-normal">About Us</a></li>
+      <li><a href="/contactUs" class="font-normal">Contact</a></li>
+    </ul>
+  </div>
+
+    <!-- Hero Text -->
+    <div class="relative z-10 flex flex-col items-center justify-center h-full px-4 text-white text-center">
+      <h1 class="text-4xl sm:text-6xl font-bold leading-tight">Floater Adventure</h1>
+  
+    </div>
+  </header>
+
+ <section class="flex items-center justify-center min-h-[60vh] px-4 py-10 bg-gray-100">
+  <div class="bg-white p-6 rounded-xl shadow-md text-center border-l-4 border-indigo-900 max-w-md w-full">
+    
+    <!-- Success Icon -->
+    <div class="flex justify-center mb-4">
+      <svg class="w-12 h-12 text-indigo-900" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+      </svg>
+    </div>
+
+    <!-- Heading & Message -->
+    <h2 class="text-xl font-semibold text-gray-800 mb-2">Success!</h2>
+    <p class="text-gray-600 text-sm">
+      Your review has been submitted successfully. Thank you!
+    </p>
+
+    <!-- Button -->
+    <a href="/home" class="inline-block mt-5 px-5 py-2 border border-indigo-900 text-indigo-900 rounded hover:bg-indigo-900 hover:text-white transition duration-200">
+      Back to Home
+    </a>
+  </div>
+</section>
+
+   <!-- Footer -->
+  <footer class="bg-[#2e2c77] text-white px-6 py-10">
+  <div class="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 text-sm">
+
+   <!-- Logo -->
+  <div class="flex flex-col items-center md:items-start justify-center md:justify-start">
+    <img src="https://floater-adventure.s3.eu-north-1.amazonaws.com/Web_Images/Bluebg_Logo.jpg" alt="Floater Adventure" class="mb-4 w-36">
+  </div>
+
+    <!-- Address -->
+    <div class="flex flex-col items-center md:items-start text-center md:text-left">
+      <h4 class="font-semibold mb-2">Address</h4>
+      <p>Srinagar</p>
+      <p>Jammu and Kashmir</p>
+      <p>Dalgate, Boulevard Road</p>
+      <p>Opposite SBI Bank</p>
+      <p>floateradventure@gmail.com</p>
+    </div>
+
+    <!-- Contact/Links -->
+    <div class="flex flex-col items-center md:items-start">
+      <h4 class="font-semibold mb-2">Quick Links</h4>
+      <a href="/aboutUs">About Us</a>
+      <a href="/termsAndConditions">Terms and Conditions</a>
+      <a href="/contactUs">Contact Us</a>
+      <a href="/privacyPolicy">Privacy Policy</a>
+    </div>
+
+     <!-- Social Links -->
+  <div class="flex flex-col items-center md:items-start">
+    <h4 class="font-semibold mb-2">Follow us at</h4>
+    <div class="flex space-x-4">
+      <!-- Instagram -->
+      <a href="https://www.instagram.com/floater_adventures/?utm_source=ig_web_button_share_sheet&igsh=ODdmZWVhMTFiMw%3D%3D#" aria-label="Instagram">
+        <svg class="w-6 h-6 text-white hover:text-gray-300" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M7 2C4.238 2 2 4.238 2 7v10c0 2.762 2.238 5 5 5h10c2.762 0 5-2.238 5-5V7c0-2.762-2.238-5-5-5H7zM12 17c-2.761 0-5-2.238-5-5s2.239-5 5-5 5 2.238 5 5-2.239 5-5 5zm4.5-8a1.5 1.5 0 110-3 1.5 1.5 0 010 3zM12 15a3 3 0 100-6 3 3 0 000 6z"/>
+        </svg>
+      </a>
+    </div>
+  </div>
+  </div>
+  </footer>
+
+<script src="{{ url_for('static', filename='js/TermsAndConditions.js') }}"></script>
+</body>
+</html>
