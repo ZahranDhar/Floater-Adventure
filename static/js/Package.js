@@ -93,6 +93,15 @@ fetch(`/get-package?package_id=${packageId}`, { method: "POST" })
   // Populate reviews
   const reviewsContainer = document.getElementById("reviews-container");
   reviewsContainer.innerHTML = "";
+  if(data.reviews){
+    document.getElementById("reviews_container").innerHTML=`
+    <h2 class="text-3xl font-bold text-indigo-900 text-center mb-4">
+      Why Travelers Love Floater Adventure
+    </h2>
+    <p class="text-gray-600 text-center max-w-2xl mx-auto mb-8">
+      Discover what our happy explorers have to say about their unforgettable journeys with us.
+    </p>`
+  }
   (data.reviews || []).forEach(r => {
     const div = document.createElement("div");
     div.className = "border p-3 rounded bg-gray-50";
@@ -108,8 +117,8 @@ fetch(`/get-package?package_id=${packageId}`, { method: "POST" })
   document.getElementById("package_price").textContent = `₹${data.price.toLocaleString()}`;
   document.getElementById("discounted_price").textContent = `₹${data.discounted_price.toLocaleString()}`;
 
-  let percentage_discount=(data.discounted_price/data.price)*100;
-  document.getElementById("discount_percent").textContent = `${percentage_discount.toLocaleString()}%`;
+  let percentage_discount=((data.price-data.discounted_price)/data.price)*100;
+  document.getElementById("discount_percent").textContent = `${percentage_discount.toLocaleString()}% OFF`;
 
   // Package ID Display
   document.getElementById("package-id-display").textContent = packageId;
