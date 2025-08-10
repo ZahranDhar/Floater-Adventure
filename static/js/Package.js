@@ -135,3 +135,19 @@ fetch(`/get-package?package_id=${packageId}`, { method: "POST" })
 
 });
 
+// Get Package Titles
+  fetch("/get-package-titles",{method:"POST"})
+  .then(res=>res.json())
+  .then(data=>{
+
+    const container = document.getElementById("package");
+    data.forEach(title=>{
+      const option = document.createElement("option");
+      option.innerHTML=`
+        <option value="${title}">${title}</option>
+      `;
+      container.appendChild(option);
+    });
+
+  });
+

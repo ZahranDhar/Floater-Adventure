@@ -135,17 +135,22 @@
 
 
 <!-- Contact Form -->
-  <section class="px-4 py-10">
-    <h3 class="text-2xl font-bold text-center mb-8">Contact Us</h3>
-    <form action="/submit-quote" method="POST" class="max-w-xl mx-auto border shadow-md p-6 rounded flex flex-col gap-4">
-      <input name ="name" type="text" placeholder="Name" class="border p-2 rounded" />
-      <input name ="contact" type="number" placeholder="Contact No" class="border p-2 rounded" />
-      <input name ="email" type="email" placeholder="Email Address" class="border p-2 rounded" />
-      <input name ="address" type="text" placeholder="Address" class="border p-2 rounded" />
-      <input name ="package" type="text" placeholder="Package Info" class="border p-2 rounded" />
-      <button type="submit" class="bg-indigo-900 text-white px-6 py-2 rounded">Get Quote</button>
-    </form>
-  </section>
+<section class="px-4 py-10">
+  <h3 class="text-2xl font-bold text-center mb-8">Contact Us</h3>
+  <form action="/submit-quote" method="POST" class="max-w-xl mx-auto border shadow-md p-6 rounded flex flex-col gap-4">
+    
+    <input name="name" type="text" placeholder="Name" class="border p-2 rounded" />
+    <input name="contact" type="number" placeholder="Contact No" class="border p-2 rounded" />
+    <input name="email" type="email" placeholder="Email Address" class="border p-2 rounded" />
+    <input name="address" type="text" placeholder="Address" class="border p-2 rounded" />
+    
+    <select id="package" name="package" class="border p-2 rounded" required>
+      <option value="">Select Package</option>
+    </select>
+
+    <button type="submit" class="bg-indigo-900 text-white px-6 py-2 rounded">Get Quote</button>
+  </form>
+</section>
 
 <!-- Review Section -->
 <section class="max-w-4xl mx-auto px-4 py-10">

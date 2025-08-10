@@ -111,7 +111,7 @@ class PackageRoutes:
         return render_template("Review.html")
       
       else:
-        package_id = ObjectId(request.form.get('package_id'))
+        package = request.form.get('package')
         reviewer = request.form.get('reviewer')
         review_text = request.form.get('review')
         rating = int(request.form.get('rating'))
@@ -122,9 +122,9 @@ class PackageRoutes:
             "rating": rating
         }
 
-        packages.update_one({"_id": package_id}, {"$push": {"reviews": review}})
+        packages.update_one({"title": package}, {"$push": {"reviews": review}})
 
-        result = packages.find_one({"_id": package_id})
+        result = packages.find_one({"title": package})
         reviews = result.get("reviews", [])
 
         if len(reviews) > 0:
@@ -132,12 +132,12 @@ class PackageRoutes:
             average_rating = total_rating / len(reviews)
 
             packages.update_one(
-                {"_id": package_id},
+                {"title": package},
                 {"$set": {"average_rating": average_rating}}
             )
 
         return redirect("/reviewSuccess")
-      
+        
     # Review Success Route  
     @app.route('/reviewSuccess', methods=['GET'])
     def displayReviewSuccess():
