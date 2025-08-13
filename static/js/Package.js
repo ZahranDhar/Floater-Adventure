@@ -37,9 +37,10 @@ fetch(`/get-package?package_id=${packageId}`, { method: "POST" })
       <div class="p-6 overflow-y-auto max-h-64">
         <h3 class="text-xl font-bold mb-2">Day ${i+1}: ${item.title}</h3>
         <p class="text-gray-700 mb-2">${item.content}</p>
-      </div>
         <p class="text-sm text-gray-600"><strong>Accommodation:</strong> ${item.accommodation || "N/A"}</p>
         <p class="text-sm text-gray-600"><strong>Meals:</strong> ${item.meals || "N/A"}</p>
+      </div>
+        
     `;
     container.appendChild(block);
   });
